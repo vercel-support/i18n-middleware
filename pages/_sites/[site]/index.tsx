@@ -39,7 +39,7 @@ export default function Index(props) {
         <li>
           <Link href="https://i18n-middleware.vercel.app">
             i18n-middleware.vercel.app
-          </Link>{" "}
+          </Link>
         </li>
       </List>
     </Page>
@@ -50,7 +50,7 @@ Index.Layout = Layout
 
 const mockDB = [
   {
-    name: "Site 1",
+    name: "Site Custom",
     description: "Custom domain",
     subdomain: null,
     customDomain: "i18n-middleware.vercel.app",

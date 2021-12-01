@@ -35,7 +35,7 @@ About.Layout = Layout
 
 const mockDB = [
   {
-    name: "Site 1",
+    name: "Site Custom",
     description: "Custom domain",
     subdomain: null,
     customDomain: "i18n-middleware.vercel.app",
