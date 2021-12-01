@@ -6,10 +6,10 @@ In this example, you'll learn how to programmatically create unique content page
 
 For context, here are some example pages:
 
-- [subdomain-1.vercel.sh](https://subdomain-1.vercel.sh/) (subdomain)
-- [subdomain-2.vercel.sh](https://subdomain-2.vercel.sh/) (subdomain)
-- [subdomain-3.vercel.sh](https://subdomain-3.vercel.sh/) (subdomain)
-- [custom-domain-1.com](https://custom-domain-1.com/) (custom domain, maps to [subdomain-1.vercel.sh](https://subdomain-1.vercel.sh/))
+- [subdomain-1.sonessonholdings.se](https://subdomain-1.sonessonholdings.se/) (subdomain)
+- [subdomain-2.sonessonholdings.se](https://subdomain-2.sonessonholdings.se/) (subdomain)
+- [subdomain-3.sonessonholdings.se](https://subdomain-3.sonessonholdings.se/) (subdomain)
+- [custom-domain-1.com](https://custom-domain-1.com/) (custom domain, maps to [subdomain-1.sonessonholdings.se](https://subdomain-1.sonessonholdings.se/))
 
 All of these generated sites are powered by ISR (no SSR at all) so they load pretty much instantly + the inter-page transitions are lightning fast.
 
@@ -34,7 +34,7 @@ To give a bit of context of how this can be applied in a real-world context, her
 - [vercel.pub](https://vercel.pub) (custom domain)
 - [retreat.vercel.pub](https://retreat.vercel.pub) (custom subdomain)
 
-We're rolling out the example above + more complex boilerplates (e-commerce storefront builders, website builders) + supplementary code snippets (static tweets, Vercel domains API, OG image generator) in an [early access program](https://eap.vercel.sh/) – feel free to join if you're interested (click "sign up" on the Platforms on Vercel program).
+We're rolling out the example above + more complex boilerplates (e-commerce storefront builders, website builders) + supplementary code snippets (static tweets, Vercel domains API, OG image generator) in an [early access program](https://eap.sonessonholdings.se/) – feel free to join if you're interested (click "sign up" on the Platforms on Vercel program).
 
 ## How to Use
 

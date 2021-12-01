@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import { Layout, Page, Text, Link, List } from '@vercel/edge-functions-ui'
+import Head from "next/head"
+import { Layout, Page, Text, Link, List } from "@vercel/edge-functions-ui"
 
 export default function Index(props) {
   return (
@@ -22,25 +22,25 @@ export default function Index(props) {
       </Text>
       <List>
         <li>
-          <Link href="https://subdomain-1.vercel.sh">
-            subdomain-1.vercel.sh
+          <Link href="https://subdomain-1.sonessonholdings.se">
+            subdomain-1.sonessonholdings.se
           </Link>
         </li>
         <li>
-          <Link href="https://subdomain-2.vercel.sh">
-            subdomain-2.vercel.sh
+          <Link href="https://subdomain-2.sonessonholdings.se">
+            subdomain-2.sonessonholdings.se
           </Link>
         </li>
         <li>
-          <Link href="https://subdomain-3.vercel.sh">
-            subdomain-3.vercel.sh
+          <Link href="https://subdomain-3.sonessonholdings.se">
+            subdomain-3.sonessonholdings.se
           </Link>
         </li>
         <li>
-          <Link href="https://custom-domain-1.com">custom-domain-1.com</Link>{' '}
-          (maps to{' '}
-          <Link href="https://subdomain-1.vercel.sh">
-            subdomain-1.vercel.sh
+          <Link href="https://custom-domain-1.com">custom-domain-1.com</Link>{" "}
+          (maps to{" "}
+          <Link href="https://subdomain-1.sonessonholdings.se">
+            subdomain-1.sonessonholdings.se
           </Link>
           )
         </li>
@@ -53,38 +53,44 @@ Index.Layout = Layout
 
 const mockDB = [
   {
-    name: 'Site 1',
-    description: 'Subdomain + custom domain',
-    subdomain: 'subdomain-1',
-    customDomain: 'custom-domain-1.com',
+    name: "Site 1",
+    description: "Custom domain",
+    subdomain: null,
+    customDomain: "i18n-middleware.vercel.app",
   },
   {
-    name: 'Site 2',
-    description: 'Subdomain only',
-    subdomain: 'subdomain-2',
+    name: "Site 1",
+    description: "Subdomain only",
+    subdomain: "subdomain-1",
     customDomain: null,
   },
   {
-    name: 'Site 3',
-    description: 'Subdomain only',
-    subdomain: 'subdomain-3',
+    name: "Site 2",
+    description: "Subdomain only",
+    subdomain: "subdomain-2",
+    customDomain: null,
+  },
+  {
+    name: "Site 3",
+    description: "Subdomain only",
+    subdomain: "subdomain-3",
     customDomain: null,
   },
 ]
 
 export async function getStaticPaths() {
   // get all sites that have subdomains set up
-  const subdomains = mockDB.filter((item) => item.subdomain)
+  const subdomains = mockDB.filter(item => item.subdomain)
 
   // get all sites that have custom domains set up
-  const customDomains = mockDB.filter((item) => item.customDomain)
+  const customDomains = mockDB.filter(item => item.customDomain)
 
   // build paths for each of the sites in the previous two lists
   const paths = [
-    ...subdomains.map((item) => {
+    ...subdomains.map(item => {
       return { params: { site: item.subdomain } }
     }),
-    ...customDomains.map((item) => {
+    ...customDomains.map(item => {
       return { params: { site: item.customDomain } }
     }),
   ]
@@ -96,10 +102,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { site } }) {
   // check if site is a custom domain or a subdomain
-  const customDomain = site.includes('.') ? true : false
+  const customDomain = site.includes(".") ? true : false
 
   // fetch data from mock database using the site value as the key
-  const data = mockDB.filter((item) =>
+  const data = mockDB.filter(item =>
     customDomain ? item.customDomain == site : item.subdomain == site
   )
 
