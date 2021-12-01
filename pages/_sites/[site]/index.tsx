@@ -37,12 +37,9 @@ export default function Index(props) {
           </Link>
         </li>
         <li>
-          <Link href="https://custom-domain-1.com">custom-domain-1.com</Link>{" "}
-          (maps to{" "}
-          <Link href="https://subdomain-1.sonessonholdings.se">
-            subdomain-1.sonessonholdings.se
-          </Link>
-          )
+          <Link href="https://i18n-middleware.vercel.app">
+            i18n-middleware.vercel.app
+          </Link>{" "}
         </li>
       </List>
     </Page>
