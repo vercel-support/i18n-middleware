@@ -9,7 +9,6 @@ export default function middleware(req: NextRequest) {
 
   const newPathname = restOfPath.join('/');
 
-
   // If localhost, assign the host value manually
   // If prod, get the custom domain/subdomain value by removing the root URL
   // (in the case of "test.vercel.app", "vercel.app" is the root URL)
