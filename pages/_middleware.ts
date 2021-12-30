@@ -9,8 +9,6 @@ export default function middleware(req: NextRequest) {
 
   const newPathname = restOfPath.join('/');
 
-  const locale = req.headers.get('accept-language')?.split(',')?.[0] || 'en-US';
-
   // const truncatedPathname = splitPathname.
 
   // If localhost, assign the host value manually
@@ -35,9 +33,8 @@ export default function middleware(req: NextRequest) {
     // rewrite to the current hostname under the pages/sites folder
     // the main logic component will happen in pages/sites/[site]/index.tsx
 
-    // console.log('[test] =', `/_sites/${currentHost}${pathname}`)
     return NextResponse.rewrite(
-      `${locale}/_sites/${currentHost}${newPathname}`
+      `/${local}/_sites/${currentHost}/${newPathname}`
     );
     // return NextResponse.rewrite('/test')
   }
