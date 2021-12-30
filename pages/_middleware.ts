@@ -1,9 +1,17 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server';
 
 export default function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl
+  const { pathname } = req.nextUrl;
   // Get hostname (e.g. vercel.com, test.vercel.app, etc.)
-  const hostname = req.headers.get('host')
+  const hostname = req.headers.get('host');
+
+  const [_, local, ...restOfPath] = pathname.split('/');
+
+  const newPathname = restOfPath.join('/');
+
+  const locale = req.headers.get('accept-language')?.split(',')?.[0] || 'en-US';
+
+  // const truncatedPathname = splitPathname.
 
   // If localhost, assign the host value manually
   // If prod, get the custom domain/subdomain value by removing the root URL
@@ -11,13 +19,13 @@ export default function middleware(req: NextRequest) {
   const currentHost =
     process.env.NODE_ENV == 'production'
       ? hostname.replace(`.${process.env.ROOT_URL}`, '')
-      : process.env.CURR_HOST
+      : process.env.CURR_HOST;
 
   // Prevent security issues – users should not be able to canonically access
   // the pages/sites folder and its respective contents. This can also be done
   // via rewrites to a custom 404 page
   if (pathname.startsWith(`/_sites`)) {
-    return new Response(null, { status: 404 })
+    return new Response(null, { status: 404 });
   }
 
   if (
@@ -27,13 +35,10 @@ export default function middleware(req: NextRequest) {
     // rewrite to the current hostname under the pages/sites folder
     // the main logic component will happen in pages/sites/[site]/index.tsx
 
-    console.log('[test] req.url =', req.url)
-    console.log('[test] pathname =', pathname)
-    console.log('[test] hostname =', hostname)
-    console.log('[test] currentHost =', currentHost)
-
     // console.log('[test] =', `/_sites/${currentHost}${pathname}`)
-    return NextResponse.rewrite(`/_sites/${currentHost}${pathname}`)
+    return NextResponse.rewrite(
+      `${locale}/_sites/${currentHost}${newPathname}`
+    );
     // return NextResponse.rewrite('/test')
   }
 }
