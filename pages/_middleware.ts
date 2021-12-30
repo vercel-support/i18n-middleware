@@ -9,7 +9,6 @@ export default function middleware(req: NextRequest) {
 
   const newPathname = restOfPath.join('/');
 
-  // const truncatedPathname = splitPathname.
 
   // If localhost, assign the host value manually
   // If prod, get the custom domain/subdomain value by removing the root URL
@@ -36,6 +35,5 @@ export default function middleware(req: NextRequest) {
     return NextResponse.rewrite(
       `/${local}/_sites/${currentHost}/${newPathname}`
     );
-    // return NextResponse.rewrite('/test')
   }
 }
